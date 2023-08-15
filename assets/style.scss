@@ -1,0 +1,707 @@
+@import url("https://fonts.cdnfonts.com/css/sackers-gothic-medium");
+@import url("https://fonts.cdnfonts.com/css/urwclarendont");
+@import url("https://fonts.cdnfonts.com/css/helvetica-neue-9");
+$fontgen: "Sackers Gothic Medium", sans-serif;
+$fontlogo: "Clarendon", sans-serif;
+$fonttext: "Helvetica 35 Thin", sans-serif;
+$color: rgba(255, 255, 255, 1);
+$colorgold: #e9d37c;
+$gradient: linear-gradient(90deg, #0f4827 0%, #085a33 100%);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: $fontgen;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(90deg, #0f4827 0%, #085a33 100%);
+}
+
+.wrapper {
+    width: 85%;
+    margin: 0 auto;
+
+    #home & {
+        display: flex;
+        min-height: 600px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #pres & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #produits & {
+        display: flex;
+    }
+
+    #collaborateurs & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@mixin background {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home {
+    @include background();
+    background-image: url(images/bg_home.png);
+    background-attachment: fixed;
+
+    header {
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+        background: #05572e;
+        backdrop-filter: blur(2px);
+
+        nav {
+            width: 85%;
+            margin: 0 auto;
+            font-family: $fontgen;
+            @include flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 15px;
+
+            .logo {
+                text-decoration: none;
+                color: $color;
+                font-size: 25px;
+                font-family: $fontlogo;
+                transition: all 0.5s;
+
+                &:hover {
+                    color: $colorgold;
+                }
+            }
+
+            ul {
+                display: flex;
+                gap: 70px;
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: $color;
+                    font-size: 16px;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        color: $colorgold;
+                    }
+                }
+            }
+        }
+    }
+
+    #toggle,
+    label {
+        display: none;
+    }
+
+    @media all and (max-width: 992px) {
+        nav .menu {
+            width: 100%;
+            height: 0;
+            backdrop-filter: blur(2px);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        label {
+            display: inline-flex;
+            color: white;
+            cursor: pointer;
+        }
+
+        nav #toggle:checked ~ .menu {
+            height: 100%;
+        }
+    }
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e9d37c;
+    border-radius: 4px;
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 0.2s;
+}
+
+.link:hover::before {
+    scale: 1;
+    transform-origin: left;
+}
+
+//FIN NAVIGATION//
+/*DEBUT TEXT-HOME*/
+.right,
+.left {
+    width: 50%;
+
+    @media all and (max-width: 992px) {
+        width: 100%;
+        @include flex();
+    }
+}
+
+@media all and (max-width: 992px) {
+    .left {
+        min-height: 600px;
+        @include flex();
+    }
+}
+
+.block-home {
+    width: 80%;
+    color: $color;
+}
+
+.title-home {
+    width: 100%;
+    @include flex();
+
+    hr {
+        height: 0;
+        width: 35%;
+        color: $color;
+    }
+
+    h1,
+    h2 {
+        margin: 0 10px 0 10px;
+    }
+}
+
+.text-home {
+    p {
+        font-family: $fonttext;
+        margin-top: 20px;
+        line-height: 26px;
+    }
+}
+
+.btn-home {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 40px;
+
+    a {
+        text-decoration: none;
+        font-family: $fonttext;
+        padding: 10px 15px 10px 15px;
+        border: 1px solid white;
+        border-radius: 3px;
+        color: white;
+        transition: all 1s;
+
+        &:hover {
+            background-color: #05572e;
+            color: $colorgold;
+            border-radius: 10px;
+            border: 1px solid $colorgold;
+        }
+    }
+}
+
+.right {
+    @include flex();
+
+    img {
+        width: 90%;
+        animation-name: images;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        animation-duration: 1s;
+        margin-top: 20px;
+
+        @media all and (max-width: 992px) {
+            width: 80%;
+        }
+    }
+
+    @keyframes images {
+        from {
+            transform: translate(0px, 20px);
+        }
+
+        to {
+            transform: translate(0px, -20px);
+        }
+    }
+}
+
+#rolexright {
+    p {
+        transform: rotate(90deg);
+    }
+}
+
+#pres {
+    display: flex;
+    min-height: 100vh;
+
+    img {
+        width: 80%;
+    }
+
+    .image_pres {
+        width: 80%;
+        min-height: 100vh;
+        background-image: url(images/watch_prs.png);
+        @include background();
+
+        @media all and (max-width: 992px) {
+            width: 90%;
+            min-height: 70%;
+            display: flex;
+            order: 5;
+        }
+    }
+}
+
+.right {
+    display: flex;
+    align-items: end;
+    margin-bottom: 20px;
+
+    @media all and (max-width: 992px) {
+        width: 100%;
+    }
+
+    .block-home {
+        min-height: 300px;
+    }
+}
+
+.title-home {
+    hr,
+    h1,
+    h2 {
+        animation-name: change;
+        animation-duration: 1s;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+    }
+}
+
+// .couronne{
+//    display: flex;
+//    width: 100%;
+//    justify-content: center;
+//    margin-bottom: 20px;
+//    #couronne{
+//    width: 50px;
+//     display: block;
+//    }
+// }
+
+@keyframes change {
+    from {
+        color: $colorgold;
+        box-shadow: 0px 0px $colorgold;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+.rolex {
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    color: $color;
+    font-family: $fontgen;
+    filter: blur(0.7px);
+
+    p {
+        transform: rotate(-90deg);
+    }
+
+    @media all and (max-width: 992px) {
+        display: none;
+    }
+}
+
+#produits {
+    .title-home {
+        padding-top: 50px;
+        width: 85%;
+        margin: 0 auto;
+
+        hr,
+        h2 {
+            animation-name: change;
+            animation-duration: 1s;
+            animation-direction: alternate-reverse;
+            animation-iteration-count: infinite;
+        }
+
+        hr {
+            color: $color;
+        }
+
+        h2 {
+            color: white;
+        }
+    }
+}
+
+.watches {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+
+    @media all and (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media all and (max-width: 792px) {
+        grid-template-columns: 1fr;
+    }
+
+    img {
+        width: 350px;
+        filter: drop-shadow(-10px 4px 15px black);
+    }
+
+    .montres {
+        min-height: 450px;
+        transition: all 0.8s;
+        margin-bottom: 20px;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .prix {
+        font-family: $fontgen;
+        color: $colorgold;
+        text-align: center;
+    }
+
+    .btn-acheter {
+        text-align: center;
+        margin-top: 20px;
+
+        a {
+            padding: 5px 45px 5px 45px;
+            background-color: $colorgold;
+            text-align: center;
+            text-decoration: none;
+            color: #05572e;
+            transition: all 0.5s;
+
+            &:hover {
+                background: #05572e;
+                color: $colorgold;
+                border: solid 1px $colorgold;
+            }
+        }
+    }
+}
+
+.rectangle {
+    width: 100%;
+    min-height: 250px;
+    background-image: url(images/collabo_produits.jpg);
+    background-attachment: fixed;
+    @include background();
+}
+
+#collaborateurs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color;
+}
+
+.block {
+    min-height: 400px;
+    margin-top: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    .text_collab {
+        padding: 50px;
+        line-height: 28px;
+
+        p {
+            margin-bottom: 40px;
+        }
+    }
+
+    .boutons {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+
+        .btns {
+            margin-top: 40px;
+            line-height: 40px;
+
+            a {
+                padding: 15px 40px 15px 40px;
+
+                text-align: center;
+                text-decoration: none;
+                z-index: 20;
+            }
+        }
+
+        #contactus {
+            a {
+                background-color: #05572e;
+                color: $colorgold;
+                border: solid 1px $colorgold;
+                transition: all 1s;
+                margin-bottom: 40px;
+
+                &:hover {
+                    color: #05572e;
+                    background-color: $colorgold;
+                    border: solid 1px #05572e;
+                    transform: scale(1.05);
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        #bijout {
+            margin-bottom: 40px;
+
+            a {
+                color: #05572e;
+                background-color: $colorgold;
+                border: solid 1px #05572e;
+                transition: all 1s;
+
+                &:hover {
+                    background-color: #05572e;
+                    color: $colorgold;
+                    border: solid 1px $colorgold;
+                    transform: scale(1.05);
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+.cadran {
+    width: 95%;
+    @include flex();
+
+    img {
+        width: 250px;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+#contact {
+    background-image: url(images/form_bg.jpg);
+    @include background();
+    background-attachment: fixed;
+}
+
+#all {
+    display: flex;
+    align-items: center;
+    min-height: 800px;
+    width: 100%;
+}
+
+form {
+    background: linear-gradient(
+        180deg,
+        rgba(66, 66, 66, 0.5) 0%,
+        rgba(28, 61, 62, 0.5) 86.04%,
+        rgba(22, 60, 61, 0.5) 100%
+    );
+    min-height: 500px;
+
+    width: 50%;
+    font-family: $fontgen;
+    padding-bottom: 10px;
+
+    @media all and (max-width: 992px) {
+        width: 100%;
+    }
+}
+
+form h4 {
+    font-size: 20px;
+    color: $colorgold;
+    font-weight: normal;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+form hr {
+    width: 30%;
+    height: 0px;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    color: $colorgold;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+form .form-group input,
+textarea {
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-family: $fontgen;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    border-bottom: solid 1px $colorgold;
+    border-left: solid 1px $colorgold;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+placeholder {
+    color: white;
+}
+
+.form-group input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.form-group placeholder {
+    color: white;
+}
+
+.send {
+    width: 80%;
+    display: flex;
+    justify-content: end;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    color: $colorgold;
+    font-size: 18px;
+    filter: drop-shadow(5px 5px 12px #05572e);
+    display: flex;
+    justify-content: center;
+    font-family: $fontgen;
+    align-items: center;
+    cursor: pointer;
+    background: #0f2c29;
+    transition: all 1.2s;
+
+    &:hover {
+        background-color: $colorgold;
+        color: #05572e;
+    }
+
+    border-radius: 15px;
+}
+
+footer {
+    background-color: #0b1e1a;
+    color: $color;
+    font-family: $fontgen;
+    font-size: 12px;
+}
+
+footer .division {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 20px;
+
+    @media all and (max-width: 992px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.colonnes p,
+#copy {
+    cursor: pointer;
+    transition: all 1s;
+
+    &:hover {
+        color: $colorgold;
+    }
+}
+
+#reseaux a,
+i {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: all 0.5s;
+
+    &:hover {
+        color: $colorgold;
+    }
+}
