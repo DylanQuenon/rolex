@@ -66,7 +66,7 @@ body {
 
 #home {
     @include background();
-    background-image: url(images/bg_home.png);
+    background-image: url(../images/bg_home.png);
     background-attachment: fixed;
 
     header {
@@ -288,7 +288,7 @@ body {
     .image_pres {
         width: 80%;
         min-height: 100vh;
-        background-image: url(images/watch_prs.png);
+        background-image: url(../images/watch_prs.png);
         @include background();
 
         @media all and (max-width: 992px) {
@@ -447,7 +447,7 @@ body {
 .rectangle {
     width: 100%;
     min-height: 250px;
-    background-image: url(images/collabo_produits.jpg);
+    background-image: url(../images/collabo_produits.jpg);
     background-attachment: fixed;
     @include background();
 }
@@ -544,7 +544,7 @@ body {
 }
 
 #contact {
-    background-image: url(images/form_bg.jpg);
+    background-image: url(../images/form_bg.jpg);
     @include background();
     background-attachment: fixed;
 }
